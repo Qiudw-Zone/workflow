@@ -1,0 +1,53 @@
+body,p{
+    margin: 0;
+    padding: 0;
+}
+@mixin bg($bg-info,$type:false){
+    background: $bg-info;
+    @if $type {
+        background-size: $type;
+    }
+}
+@mixin size($width,$height){
+    width: $width;
+    height: $height;
+}
+html{
+    height: 100%;
+}
+body {
+    min-height: 100%;
+    font-family: 'Microsoft Yahei';
+    font-size: 12px;
+    @include bg(url(http://localhost:8889/img/sites/platform/ak/bg.jpg) no-repeat top center);
+}
+.ak-wrap{
+    position: absolute;
+    @include size(530px,auto);
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    .ak-logo{
+        display: block;
+        @include size(256px,110px);
+        margin:0 auto;
+        @include bg(url(http://localhost:8889/img/sites/platform/ak/logo.png) no-repeat);
+    }
+    .ak-btn{
+        display: block;
+        margin:30px auto;
+        padding:10px 50px;
+        font-size: 16px;
+        color:#fff;
+        background-color:#F67530;
+        box-shadow:0 5px 0px #EF4911;
+        border:none;
+        outline:none;
+    }
+    .ak-desc{
+        @include size(100%,auto);
+        font-size: 14px;
+        line-height: 3;
+        color:#666;
+    }
+}

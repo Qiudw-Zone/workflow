@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>学习Vue API</title>
+    <script src="//localhost:8889/js/libs/vue.js"></script>
+    <style>
+        .wrap{
+            padding:30px;
+        }
+    </style>
+</head>
+<body>
+    <h3>起步Hello</h3>
+    <div id="app" class="wrap">{{message}}</div>
+
+    <h3>双向绑定</h3>
+    <div class="way-bind wrap">
+        <p>{{message}}</p>
+        <input type="text" v-model="message" number>
+    </div>
+    
+    <h3>表单控件绑定</h3>
+    <div class="form-controls">
+        <div class="wrap">
+            <input type="checkbox" id="checkbox" v-model="checked">
+            <label for="checkbox">{{checked}}</label>
+        </div>
+        <div class="wrap">
+            <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+            <label for="jock">Jack</label>
+            <input type="checkbox" id="john" value="John" v-model="checkedNames">
+            <label for="john">John</label>
+            <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+            <label for="mike">Mike</label>
+            <br />
+            <span>Checked names: {{ checkedNames | json }}</span>
+        </div>
+        <div class="wrap">
+            <select v-model="selecteds" multiple>
+                <option selected>A</option>
+                <option>B</option>
+                <option>C</option>
+            </select>
+            <br />
+            <span>Selected: {{ selecteds | json }}</span>
+        </div>
+        <div class="wrap">
+            <select v-model="selected">
+                <option v-for="option in options" v-bind:value="option.value">{{option.text}}</option>
+            </select>
+            <br />
+            <span>Selected: {{selected}}</span>
+        </div>
+    </div>
+    <script src="//localhost:8889/js/sites/platform/vue/main.js"></script>
+</body>
+</html>

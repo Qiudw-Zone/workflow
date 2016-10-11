@@ -1,0 +1,145 @@
+@charset "utf-8";
+// 公共变量，mixin
+// 新闻页和用户中心页 support页用到
+@import "compass/typography";
+@import "compass/utilities";
+@import "../CCS/common/common";
+// @import "common/common";
+@import "./rowcol"; // row and col
+
+@import "../CCS/mixin/popup";//弹出窗
+@import "../CCS/mixin/size";//
+@import "../CCS/mixin/height";//
+
+// 作用：引用小图标
+// $iconName:小图标名称，不带后缀
+// $isLineHeight：是否设置行高等于图标高度，默认是否
+// $paddingLeft: 左内填充，默认是0
+// $paddingRight: 右内填充，默认是0
+
+$text-title-color: #333 !default;
+$text-color: #666 !default;
+$text-small-color: #c6c6c6 !default;
+
+$text-hover-color:#f27003 !default;
+$a-color:#0068b7 !default;
+
+
+$border-width:1px  !default;
+$border-color:#c2c1bf  !default;
+$border-inset-color:#f9fdfe  !default;
+$bgcolor-gray: #f1f1f1 !default;
+$width:1000px !default;
+$width-left:230px !default;
+$border : $border-color $border-width solid !default;
+
+
+@mixin opacityLinearBgColor($color ,$opa:.6){
+    @include background(linear-gradient(to bottom, fade-out($color ,$opa) 20px, $color 100px));
+    background-color: #{$color}\9;
+}
+$opa : .6;
+%inset-color{
+    @include box-shadow(inset 0 1px 0 fade-out($border-inset-color ,$opa));
+}
+
+
+
+/*  Text Selected Effect */
+@mixin selection($select : '') {
+    $ps : "" ,"-moz-" ,"-webkit-";
+    @each $p in $ps{
+        #{$select}::#{$p}selection{
+            @content;
+        }
+    }
+}
+
+// 滚动条样式
+%scorllStyle{
+    &::-webkit-scrollbar {
+        width: 5px;
+    }
+    &::-webkit-scrollbar-track {
+       
+    }
+    &::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background: #E0E0E0;
+    }
+    &::-webkit-scrollbar-thumb:window-inactive {
+        background: rgba(0,0,0,.1);
+        background: rgba(247,118,44,.8);
+        border-radius: 5px;
+    }
+    &::-webkit-scrollbar-thumb:vertical:hover {
+        background-color: rgba(0,0,0,.3);
+    }
+    &::-webkit-scrollbar-thumb:vertical:active {
+        background-color: rgba(0,0,0,.7);
+    }
+}
+
+
+/* ********************************** */
+// 表单
+%radius{
+    @include border-radius(4px);
+}
+%inset-box-shadow{
+        @include box-shadow(inset 0 2px 3px #F2F2F2);
+}
+%control-border{
+    border: 1px #e0e0e0 solid;
+}
+%control{
+    @extend %control-border;
+    @extend %radius;
+    @extend %inset-box-shadow;
+    line-height: 26px;
+}
+%control-btn{
+    @extend %control-border;
+    @include box-shadow(inset 0 1px 0 $border-inset-color ,0 2px 2px #f2f2f2);
+    @extend %radius;
+    text-align: center;
+}
+%side{
+    padding-top: 20px;
+    background: none;
+}
+/* ********************************** */
+// 圆角图片加边
+%radiusimg{
+    @extend %inline-block;
+    @include border-radius(100%);
+    overflow: hidden;
+    img{
+        @include size(100%);
+        @include border-radius(100%);
+        vertical-align: middle;
+    }
+}
+// 头像圆角加边
+%avatarbox{
+    @extend %radiusimg;
+    @include size(68px);
+    border:3px #fff solid;
+}
+/* ********************************** */
+// 按钮字
+%btn-font{
+    font-weight: bold;
+    font-size: 16px;
+    color: #fff!important;
+    @include text-shadow(1px -1px 0 #777);
+    text-align: center;
+    &:hover{
+        color: #fff!important;
+        @include opacity(.8);
+    }
+}
+%btn-font-small{
+    @extend %btn-font;
+    font-size: 12px;
+}

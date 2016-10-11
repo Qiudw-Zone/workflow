@@ -1,0 +1,418 @@
+@charset "utf-8";
+/**
+ * @func G妹移動版
+ * @author 寒影
+ * @date 2016-08-31
+ */
+@import "common/_reset.scss";
+@import "helpers/_mixins.scss";
+
+$icons: sprite-map("sites/platform/gm/icons/*.png", $spacing: 1px,$layout: horizontal);
+$ppr:750px / 10 / 1rem;
+@import "helpers/_spritesM.scss";
+
+$baseUrl:"http://10.4.9.25:3001/img/sites/platform/gm/";
+.hide{
+    display: none;
+}
+.wrap{
+    @include size(100%,auto);
+    .head{
+        position: fixed;
+        z-index: 11;
+
+        display: flex;
+        flex-direction:row;
+        justify-content:center; // 垂直居中
+        align-items: center; // 水平居中
+
+        @include size(100%,80px / $ppr);
+        @include bg(url($baseUrl+'bg-banner.png') repeat-x);
+        .logo-gm{
+            @include getIcon($icons,'logo-gm');
+        }
+        .logo-gc{
+            @include getIcon($icons,'logo-gc');
+        }
+        .logo-lb{
+            @include getIcon($icons,'logo-lb');
+        }
+        .login{
+            position:absolute;
+            top:22px / $ppr;
+            right:20px / $ppr;
+            @include size(117px / $ppr,36px / $ppr);
+            @include getIcon($icons,'bg-login');
+        }
+    }
+    .foot{
+        position:fixed;
+        @include size(100%,100px / $ppr);
+        padding:0 14px / $ppr;
+        bottom:0;
+        background-color:#fff;
+        border-top:2px solid #F87E18;
+        .navs{
+            display: flex;
+            flex-direction:row;
+            justify-content:center; // 垂直居中
+            align-items: stretch; // 撐高容器
+            @include size(100%,100px / $ppr);
+        }
+        .nav{
+            flex-grow:1;
+            text-align: center;
+            &:hover{
+                background-color: #F87E18;
+                .name{
+                    color:#fff;
+                }
+            }
+            i,span{
+                display: block;
+                margin:7px / $ppr auto 0;
+            }
+            .name{
+                color:#666666;
+                @include font-dpr(12px);
+                text-align: center;
+            }
+            .home{
+                @include size(50px / $ppr,45px / $ppr);
+                @include getIcon($icons,'home');
+            }
+            .home-h{
+                @include size(50px / $ppr,45px / $ppr);
+                @include getIcon($icons,'home-h');
+            }
+            .game{
+                @include size(55px / $ppr,36px / $ppr);
+                @include getIcon($icons,'game');
+            }
+            .game-h{
+                @include size(55px / $ppr,36px / $ppr);
+                @include getIcon($icons,'game-h');
+            }
+            .store{
+                @include size(48px / $ppr,48px / $ppr);
+                @include getIcon($icons,'store');
+            }
+            .store-h{
+                @include size(48px / $ppr,48px / $ppr);
+                @include getIcon($icons,'store-h');
+            }
+            .gift{
+                @include size(48px / $ppr,49px / $ppr);
+                @include getIcon($icons,'gift');
+            }
+            .gift-h{
+                @include size(48px / $ppr,49px / $ppr);
+                @include getIcon($icons,'gift-h');
+            }
+            .service{
+                @include size(50px / $ppr,47px / $ppr);
+                @include getIcon($icons,'service');
+            }
+            .service-h{
+                @include size(50px / $ppr,47px / $ppr);
+                @include getIcon($icons,'service-h');
+            }
+        }
+        .nav-on{
+            background-color: #F87E18;
+            .name{
+                color:#fff;
+            }
+        }
+    }
+}
+.body{
+    padding:20px / $ppr 10px / $ppr;
+    margin-bottom: 100px / $ppr;
+    padding-top:100px / $ppr;
+    background-color:#FEFAD7;
+    .gf-head{
+        @include size(100%,316px / $ppr);
+        padding-top:20px / $ppr;
+        @include bg(url($baseUrl+'bg-gift.jpg') no-repeat bottom,contain);
+        .gf-navs{
+            display: flex;
+            @include size(695px / $ppr,62px / $ppr);
+            margin: 0 auto;
+            border:2px solid #F87E19;
+            border-radius:10px / $ppr;
+            background-color: #FFFFFF;
+            .gf-nav{
+                position:relative;
+                display: flex;
+                flex-grow: 1;
+                align-items:center;
+                justify-content: center;
+                color:#6C6C6C;
+                @include font-dpr(18px);
+            }
+            .gf-nav-on{
+                background-color:#F87E19;
+                color:#fff;
+                &:after{
+                    content: '';
+                    position:absolute;
+                    @include size(0,0);
+                    left:50%;
+                    bottom:-2px / $ppr;
+                    border:7px / $ppr solid transparent;
+                    border-bottom-color:#FEFAD7;
+                }
+            }
+            .gf-type{
+                margin-right: 14px / $ppr;
+            }
+            .gf-a{
+                @include getIcon($icons,'gift-a');
+            }
+            .gf-m{
+                @include getIcon($icons,'gift-m');
+            }
+        }
+        .gf-desc{
+            position:relative;
+            left: 340px / $ppr;
+        }
+        .gf-desc-m{
+            @include getIcon($icons,'text-m');
+            top: 88px / $ppr;
+        }
+        .gf-desc-a{
+            @include getIcon($icons,'text-a');
+            top: 68px / $ppr;
+        }
+    }
+    .gf-main{
+        @include size(auto,auto);
+        padding:0 10px / $ppr;
+
+        .gf-item{
+            @include size(100%,auto);
+            margin-bottom: 15px / $ppr;
+            border:1px solid #DEDDC9;
+            box-shadow:0px 0px 3px #DEDDC9;
+            border-radius:10px / $ppr;
+            @include font-dpr(12px);
+            color:#626262;
+            background-color:#fff;
+        }
+        .m-head{
+            @include size(auto,60px / $ppr);
+            display: flex;
+            align-items:center;
+            justify-content: space-between;
+            padding-left:89px / $ppr;
+            padding-right:32px / $ppr;
+            background-color:#FFFFFF;
+            .m-name{
+                @include size(192px / $ppr,auto);
+                flex-grow: 0;
+            }
+            .m-gf{
+                flex-grow:0;
+                @include size(108px / $ppr,29px / $ppr);
+                border:1px solid #74D21C;
+                @include font-dpr(10px);
+                line-height: 29px / $ppr;
+                text-align:center;
+                color:#74D21C;
+                border-radius:7px / $ppr;
+            }
+            .hy{
+                border-color:#3190EE;
+                color: #3190EE
+            }
+            .m-date{
+                flex-grow: 1;
+                text-align:right;
+            }
+        }
+        .m-foot{
+            @include size(auto,60px / $ppr);
+            display: flex;
+            align-items:center;
+            justify-content: flex-star;
+            padding-left:89px / $ppr;
+            padding-right:32px / $ppr;
+            background-color:#FEF1E8;
+            .m-seril{
+                flex-grow:0;
+                @include size(102px,auto);
+            }
+            .m-control{
+                flex-grow: 1;
+                @include size(auto,22px / $ppr);
+            }
+            .m-code{
+                @include size(100%,100%);
+                background:none;
+                outline: none;
+            }
+        }
+        .a-head{
+            display: flex;
+            justify-content: space-between;
+            align-items:center;
+            padding:15px / $ppr;
+            border-bottom:1px solid #EDEDED;
+            .a-g-pic{
+                flex-grow:0;
+                @include size(120px / $ppr, 120px / $ppr);
+                margin-right: 15px / $ppr;
+            }
+            .a-g-desc{
+                flex-grow:1;
+                .a-g-name{
+                    @include font-dpr(16px);
+                    margin-bottom: 32px / $ppr;
+                    color:#7A7A7A;
+                }
+                .a-g-lbs{
+                    color:#AAAAAA;
+                }
+            }
+            .coll-wrap{
+                position:relative;
+                flex-grow:0;
+                @include size(60px / $ppr,60px / $ppr);
+                margin-right: 15px / $ppr;
+            }
+            .collapse{
+                position:absolute;
+                @include getIcon($icons,'up');
+                top:50%;
+                left:50%;
+                transform:translate(-50%,-50%);
+            }
+        }
+        .a-foot{
+            @include size(auto,auto);
+            overflow:hidden;
+            transform-origin:50% 0;
+            .a-box{
+                display: flex;
+                align-items:center;
+                justify-content: space-between;
+                @include size(auto,75px / $ppr);
+                padding:18px / $ppr 16px / $ppr 18px / $ppr 0;
+            }
+            .box-xs{
+                border-bottom:1px solid #EDEDED;
+            }
+            .i-lb{
+                flex-grow:0;
+                margin:0 37px / $ppr;
+            }
+            .gf-n{
+                @include getIcon($icons,'gift-n');
+            }
+            .gf-c{
+                @include getIcon($icons,'gift-c');
+            }
+            .a-info{
+                flex-grow:1;
+                .a-lb{
+                    @include size(128px / $ppr,39px / $ppr);
+                    line-height: 38px / $ppr;
+                    text-align:center;
+                    border:1px solid #77D020;
+                    color:#77D020;
+                    border-radius:7px / $ppr;
+                    margin-bottom: 23px / $ppr;
+                }
+                .a-pro-wrap{
+                    display: flex;
+                    justify-content: flex-star;
+                    align-items: center;
+                    @include size(auto,22px / $ppr);
+                    @include font-dpr(10px);
+                }
+                .a-pro-desc{
+                    color:#AAAAAA;
+                }
+                .a-percent{
+                    color:#F47E1C;
+                }
+                .a-pro-box{
+                    @include size(290px / $ppr,10px / $ppr);
+                    margin-right: 15px / $ppr;
+                    border-radius:7px / $ppr;
+                    background-color: #CFCFCF;
+                    overflow:hidden;
+                    .a-process{
+                        @include size(120px / $ppr,100%);
+                        border-radius:7px / $ppr;
+                        background-color: #F47E1C;
+                    }
+                }
+            }
+            .a-get{
+                flex-grow: 0;
+                align-self:flex-end;
+                @include size(118px / $ppr,58px / $ppr);
+                border:1px solid #F47E1C;
+                color:#F47E1C;
+                @include font-dpr(14px);
+                background-color:#fff;
+                outline: none;
+                border-radius: 10px / $ppr;
+            }
+        }
+    }
+}
+
+@include keyframes(slidedown){
+    from{
+        height: 0;
+    }
+    to{
+        height: 223px / $ppr;
+    }
+}
+@include keyframes(slideup){
+    from{
+        height: 223px / $ppr;
+    }
+    to{
+        height: 0;
+    }
+}
+@include keyframes(scaleup){
+    0% {
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+@include keyframes(scaledown){
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(0);
+    }
+}
+.slide-down{
+    @include animation(slidedown,.4s,ease-out,0s,1);
+}
+.slide-up{
+    @include animation(slideup,.4s,ease-out,0s,1);
+}
+.scale-down{
+    @include animation(scaledown,.4s,ease-out,0s,1);
+}
+.scale-up{
+    @include animation(scaleup,.4s,ease-out,0s,1);
+}

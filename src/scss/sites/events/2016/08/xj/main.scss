@@ -1,0 +1,276 @@
+@charset "utf-8";
+/**
+ * @func 剑刃跨服活动
+ * @author 寒影
+ * @date 2016-08-09
+ */
+@import "common/_reset.scss";
+
+$icons-spacing:1px;
+$icons-layout:"horizontal";
+@import "sites/events/2016/08/xj/icons/*.png";
+@include all-icons-sprites;
+
+$sprite: sprite-map("sites/events/2016/08/xj/mob/*.png", $spacing: 1px,$layout: horizontal);
+$ppr:750px / 10 / 1rem;
+@import "helpers/_spritesM.scss";
+
+$baseUrl:"http://localhost:8889/img/sites/events/2016/08/xj/";
+body{
+    color:red;
+}
+.tc{
+    text-align: center;
+}
+.off{
+    display: none !important;
+}
+.page{
+    @include size(auto,2097px);
+    min-width:1000px;
+    @include bg(url($baseUrl+'bg-body.jpg') no-repeat center);
+    .wrap{
+        @include size(1000px,auto);
+        margin:0 auto;
+        padding-top:620px;
+    }
+    .head{
+        position:relative;
+        @include size(auto,auto);
+        padding:0 44px 0 61px;
+        .go{
+            position: absolute;
+            @include size(100px,119px);
+            top: 80px;
+            left: 471px;
+            cursor: pointer;
+        }
+        .sign-wrap{
+            @include size(280px,auto);
+            margin:110px 0 0;
+            font-size: 0;
+            .day{
+                display: inline-block;
+                *display:inline;
+                *zoom:1;
+                @include size(60px,41px);
+                margin:{
+                    right:10px;
+                    bottom: 10px;
+                }
+                text-align: center;
+                line-height: 53px;
+                font-size: 14px;
+                color:#ECF6FE;
+                cursor: pointer;
+                border:none;
+                outline:none;
+            }
+            .icons-insign{
+                color:#B44113;
+            }
+        }
+    }
+    .btn-wrap{
+        @include size(100%,auto);
+        margin:0 auto;
+        padding:10px 0px;
+        .btn{
+            @include size(123px,46px);
+            margin-right: 15px;
+            color:#FEF9F8;
+            font-size: 18px;
+            text-align: center;
+            line-height: 46px;
+            border: none;
+            outline:none;
+            cursor:pointer;
+        }
+    }
+    .login-query{
+        text-align: right;
+    }
+    .foot{
+        @include size(auto,auto);
+        margin-top:645px;
+        padding: 0 105px;
+        .fb{
+            margin-top: 200px;
+        }
+    }
+    .mask{
+        position:fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: rgba(11,11,11,.7);
+    }
+    .pop-wrap{
+        position:absolute;
+        @include size(528px,auto);
+        left:50%;
+        top:50%;
+        transform: translate(-50%,-50%);
+        .pop{
+            float: left;
+            @include size(463px,auto);
+            padding:10px;
+            border:1px solid;
+            border-color:rgba(87,82,0,.7);
+            background-color:rgba(17,7,4,.7);
+        }
+        .close{
+            float: right;
+            @include size(42px,42px);
+            cursor: pointer;
+        }
+    }
+    .box{
+        @include size(auto,auto);
+        border:1px solid;
+        border-color:rgba(101,93,2,.7);
+
+        .title{
+            @include size(90px,18px);
+            margin:10px auto;
+        }
+        .award{
+            @include size(auto,auto);
+            margin: 20px auto;
+            text-align: center;
+            .desc{
+                padding:10px 0;
+                font-size: 14px;
+                color:#E8E7E7;
+            }
+            .name{
+                font-size: 30px;
+                color:#D59C33;
+            }
+        }
+        .serials{
+            @include size(400px,auto);
+            margin: 0 auto;
+            padding:20px 0;
+            font-size: 18px;
+            color:#EDEDED;
+        }
+        .code{
+            display: inline-block;
+            @include size(310px,30px);
+            padding:0 10px;
+            line-height: 28px;
+            background-color:#FFF000;
+            color:#3E3900;
+        }
+    }
+}
+
+.mob{
+    @include size(100%,2235px / $ppr);
+    min-width:0;
+    @include bg(url($baseUrl+'bg-body-m.jpg') no-repeat center);
+
+    .wrap{
+        @include size(100%,auto);
+        margin:0 auto;
+        padding-top:810px / $ppr;
+    }
+
+    .head{
+        padding:0 44px 0 61px;
+        .go{
+            @include size(100px / $ppr,119px / $ppr);
+            top: 80px / $ppr;
+            left: 471px / $ppr;
+        }
+        .sign-wrap{
+            @include size(280px / $ppr,auto);
+            margin:95px / $ppr 0 0;
+            .day{
+                @include size(60px / $ppr,41px / $ppr);
+                margin:{
+                    right:10px / $ppr;
+                    bottom: 10px / $ppr;
+                }
+                line-height: 53px / $ppr;
+                @include font-dpr(7px);
+            }
+            .icons-signed{
+                @include getIcon($sprite,signed);
+            }
+            .icons-sign{
+                @include getIcon($sprite,sign);
+            }
+            .icons-insign{
+                @include getIcon($sprite,insign);
+            }
+            .icons-expire{
+                @include getIcon($sprite,expire);
+            }
+        }
+    }
+
+    .btn-wrap{
+        padding:0px 0px 10px / $ppr;
+        .btn{
+            @include size(123px / $ppr,46px / $ppr);
+            margin-right: 15px / $ppr;
+            @include font-dpr(9px);
+            line-height: 46px / $ppr;
+        }
+    }
+    .btn-acti{
+        text-align: center;
+    }
+    .login-query{
+        text-align: left;
+    }
+    .foot{
+        margin-top:415px / $ppr;
+        padding: 0 105px / $ppr;
+        .fb{
+            margin-top: 500px / $ppr;
+        }
+    }
+
+    .pop-wrap{
+        @include size(528px / $ppr,auto);
+        .pop{
+            @include size(463px / $ppr,auto);
+            padding:10px / $ppr;
+            border:1px solid;
+        }
+        .close{
+            @include size(42px / $ppr,42px / $ppr);
+            @include getIcon($sprite,exit);
+        }
+    }
+    .box{
+        .title{
+            @include size(90px / $ppr,18px / $ppr);
+            margin:10px / $ppr auto;
+        }
+        .award{
+            margin: 20px / $ppr auto;
+            .desc{
+                padding:10px / $ppr 0;
+                @include font-dpr(7px);
+            }
+            .name{
+                @include font-dpr(15px);
+            }
+        }
+        .serials{
+            @include size(400px / $ppr,auto);
+            padding:20px / $ppr 0;
+            @include font-dpr(9px);
+        }
+        .code{
+            @include size(310px / $ppr,30px / $ppr);
+            padding:0 10px / $ppr;
+            line-height: 28px / $ppr;
+        }
+    }
+}

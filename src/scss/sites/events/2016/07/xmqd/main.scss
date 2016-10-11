@@ -1,0 +1,245 @@
+@charset "utf-8";
+/**
+ * @func 六龙御天新马簽到
+ * @author 寒影
+ * @date 2016-07-20
+ */
+@import "common/_reset.scss";
+
+$icons: sprite-map("sites/events/2016/07/xmqd/icons/*.png", $spacing: 1px,$layout: horizontal);
+$day: sprite-map("sites/events/2016/07/xmqd/day/*.png", $spacing: 1px,$layout: horizontal);
+$days: sprite-map("sites/events/2016/07/xmqd/days/*.png", $spacing: 1px,$layout: horizontal);
+$ppr:750px / 10 / 1rem;
+@import "helpers/_spritesM.scss";
+.mr15rem{
+    margin-right: 15px / $ppr;
+}
+.page{
+    @include size(100%,auto);
+}
+ 
+.page-head{
+    position: relative;
+    @include size(100%,860px / $ppr);
+    @include bg(url(http://localhost:8889/img/sites/events/2016/07/xmqd/bg-top.jpg) no-repeat top center,contain);
+    .jumps{
+        padding:15px / $ppr;
+        text-align: right;
+        .jump{
+            display: inline-block;
+            margin-right: 15px / $ppr;
+        }
+        .home{
+            @include getIcon($icons,home);
+        }
+        .fb{
+            @include getIcon($icons,fb);
+        }
+    }
+    .head-btns{
+        position: absolute;
+        padding: 0 15px / $ppr;
+        bottom: 30px / $ppr;
+        .btn-wrap{
+            display: inline-block;
+            margin-right: 10px / $ppr;
+            @include getIcon($icons,btn);
+            @include font-dpr(14px);
+            font-weight: bold;
+            text-align: center;
+            line-height: 72px / $ppr;
+            color:#fff;
+        }
+    }
+}
+.page-body{
+    @include size(100%, 1678px / $ppr);
+    margin-top:-2px / $ppr;
+    padding-top: 180px / $ppr;
+    @include bg(url(http://localhost:8889/img/sites/events/2016/07/xmqd/bg-center.jpg) no-repeat center, contain);
+    .items-bottom{
+        padding-top:25px / $ppr;
+        border-top: 1px solid #3E312F;
+    }
+}
+
+.statistic{
+    @include size(605px / $ppr, auto);
+    padding: 20px / $ppr 0;
+    margin: 0 auto 0;
+    @include font-dpr(10px);
+    color:#C9B06D;
+    text-align: right;
+}
+.items{
+    @include size(605px / $ppr, auto);
+    margin: 0 auto;
+    font-size: 0;
+    text-align: center;
+    .item{
+        display: inline-block;
+        @include size(180px / $ppr, 235px / $ppr);
+        margin-bottom: 25px / $ppr;
+    }
+    .item-btn{
+        margin-top: 10px / $ppr;
+    }
+    .btn-sign{
+        @include getIcon($icons,btn-sign);
+    }
+    .btn-sign-off{
+        @include getIcon($icons,btn-sign-off);
+    }
+    .btn-get{
+        @include getIcon($icons,btn-get);
+    }
+    .btn-get-off{
+        @include getIcon($icons,btn-get-off);
+    }
+    .item-1{
+        @include getIcon($day,'item-1');
+    }
+    .item-2{
+        @include getIcon($day,'item-2');
+    }
+    .item-3{
+        @include getIcon($day,'item-3');
+    }
+    .item-4{
+        @include getIcon($day,'item-4');
+    }
+    .item-5{
+        @include getIcon($day,'item-5');
+    }
+    .item-6{
+        @include getIcon($day,'item-6');
+    }
+    .item-7{
+        @include getIcon($day,'item-7');
+    }
+    .item-8{
+        @include getIcon($day,'item-8');
+    }
+    .item-9{
+        @include getIcon($day,'item-9');
+    }
+    .item-10{
+        @include getIcon($day,'item-10');
+    }
+    .item-11{
+        @include getIcon($day,'item-11');
+    }
+    .item-12{
+        @include getIcon($day,'item-12');
+    }
+    .item-13{
+        @include getIcon($day,'item-13');
+    }
+    .item-14{
+        @include getIcon($day,'item-14');
+    }
+    .item-15{
+        @include getIcon($day,'item-15');
+    }
+    .item-16{
+        @include getIcon($day,'item-16');
+    }
+    .item-17{
+        @include getIcon($day,'item-17');
+    }
+    .item-18{
+        @include getIcon($day,'item-18');
+    }
+    .item-19{
+        @include getIcon($day,'item-19');
+    }
+    .item-20{
+        @include getIcon($day,'item-20');
+    }
+    .item-21{
+        @include getIcon($day,'item-21');
+    }
+    .item-22{
+        @include getIcon($day,'item-21');
+    }
+    .item-23{
+        @include getIcon($day,'item-21');
+    }
+    .item-1-off{
+        @include getIcon($days,'item-1');
+    }
+    .item-2-off{
+        @include getIcon($days,'item-2');
+    }
+    .item-3-off{
+        @include getIcon($days,'item-3');
+    }
+    .item-4-off{
+        @include getIcon($days,'item-4');
+    }
+    .item-5-off{
+        @include getIcon($days,'item-5');
+    }
+    .item-6-off{
+        @include getIcon($days,'item-6');
+    }
+    .item-7-off{
+        @include getIcon($days,'item-7');
+    }
+    .item-8-off{
+        @include getIcon($days,'item-8');
+    }
+    .item-9-off{
+        @include getIcon($days,'item-9');
+    }
+    .item-10-off{
+        @include getIcon($days,'item-10');
+    }
+    .item-11-off{
+        @include getIcon($days,'item-11');
+    }
+    .item-12-off{
+        @include getIcon($days,'item-12');
+    }
+    .item-13-off{
+        @include getIcon($days,'item-13');
+    }
+    .item-14-off{
+        @include getIcon($days,'item-14');
+    }
+    .item-15-off{
+        @include getIcon($days,'item-15');
+    }
+    .item-16-off{
+        @include getIcon($days,'item-16');
+    }
+    .item-17-off{
+        @include getIcon($days,'item-17');
+    }
+    .item-18-off{
+        @include getIcon($days,'item-18');
+    }
+    .item-19-off{
+        @include getIcon($days,'item-19');
+    }
+    .item-20-off{
+        @include getIcon($days,'item-20');
+    }
+    .item-21-off{
+        @include getIcon($days,'item-21');
+    }
+    .item-22-off{
+        @include getIcon($days,'item-21');
+    }
+    .item-23-off{
+        @include getIcon($days,'item-21');
+    }
+    
+}
+
+.page-foot{
+    @include size(100%, 652px / $ppr);
+    margin-top:-2px / $ppr;
+    padding-top: 180px / $ppr;
+    @include bg(url(http://localhost:8889/img/sites/events/2016/07/xmqd/bg-bottom.jpg) no-repeat center, contain);
+}

@@ -1,0 +1,404 @@
+@charset "utf-8";
+/**
+ * @func 剑刃跨服活动
+ * @author 寒影
+ * @date 2016-08-09
+ */
+@import "common/_reset.scss";
+
+$icons: sprite-map("sites/platform/gm/icons/*.png", $spacing: 1px,$layout: horizontal);
+$ppr:750px / 10 / 1rem;
+@import "helpers/_spritesM.scss";
+
+$baseUrl:"http://10.4.9.25:3001/img/sites/platform/gm/";
+
+.wrap{
+    @include size(100%,auto);
+    .head{
+        position: fixed;
+        z-index: 9;
+
+        display: flex;
+        flex-direction:row;
+        justify-content:center; // 垂直居中
+        align-items: center; // 水平居中
+
+        @include size(100%,80px / $ppr);
+        @include bg(url($baseUrl+'bg-banner.png') repeat-x);
+        .logo-gm{
+            @include size(163px / $ppr,50px / $ppr);
+            @include getIcon($icons,'logo-gm');
+        }
+        .login{
+            position:absolute;
+            top:22px / $ppr;
+            right:20px / $ppr;
+            @include size(117px / $ppr,36px / $ppr);
+            @include getIcon($icons,'bg-login');
+        }
+    }
+    .foot{
+        position:fixed;
+        @include size(100%,100px / $ppr);
+        padding:0 14px / $ppr;
+        bottom:0;
+        background-color:#fff;
+        border-top:2px solid #F87E18;
+        .navs{
+            display: flex;
+            flex-direction:row;
+            justify-content:center; // 垂直居中
+            align-items: stretch; // 撐高容器
+            @include size(100%,100px / $ppr);
+        }
+        .nav{
+            flex-grow:1;
+            text-align: center;
+            &:hover{
+                background-color: #F87E18;
+                .name{
+                    color:#fff;
+                }
+            }
+            i,span{
+                display: block;
+                margin:7px / $ppr auto 0;
+            }
+            .name{
+                color:#666666;
+                @include font-dpr(12px);
+                text-align: center;
+            }
+            .home{
+                @include size(50px / $ppr,45px / $ppr);
+                @include getIcon($icons,'home');
+            }
+            .home-h{
+                @include size(50px / $ppr,45px / $ppr);
+                @include getIcon($icons,'home-h');
+            }
+            .game{
+                @include size(55px / $ppr,36px / $ppr);
+                @include getIcon($icons,'game');
+            }
+            .game-h{
+                @include size(55px / $ppr,36px / $ppr);
+                @include getIcon($icons,'game-h');
+            }
+            .store{
+                @include size(48px / $ppr,48px / $ppr);
+                @include getIcon($icons,'store');
+            }
+            .store-h{
+                @include size(48px / $ppr,48px / $ppr);
+                @include getIcon($icons,'store-h');
+            }
+            .gift{
+                @include size(48px / $ppr,49px / $ppr);
+                @include getIcon($icons,'gift');
+            }
+            .gift-h{
+                @include size(48px / $ppr,49px / $ppr);
+                @include getIcon($icons,'gift-h');
+            }
+            .service{
+                @include size(50px / $ppr,47px / $ppr);
+                @include getIcon($icons,'service');
+            }
+            .service-h{
+                @include size(50px / $ppr,47px / $ppr);
+                @include getIcon($icons,'service-h');
+            }
+        }
+        .nav-on{
+            background-color: #F87E18;
+            .name{
+                color:#fff;
+            }
+        }
+    }
+    .header{
+        display: flex;
+        flex-direction:row;
+        justify-content:center; // 垂直居中
+        align-items: center; // 撐高容器
+        @include size(auto,60px / $ppr);
+        padding:0 10px / $ppr;
+        border-style:solid;
+        border-bottom-width:1px;
+        font-size: 0;
+        .i-box{
+            display: flex;
+            flex-direction:row;
+            justify-content:center; // 垂直居中
+            align-items: center; // 水平居中
+            @include size(33px / $ppr,100%);
+            flex-grow:0;
+        }
+        .i-m{
+            @include getIcon($icons,'m');
+        }
+        .i-n{
+            @include getIcon($icons,'n');
+        }
+        .i-fb{
+            @include getIcon($icons,'f');
+        }
+        .title{
+            @include size(auto,100%);
+            padding-left:10px / $ppr;
+            @include font-dpr(15px);
+            color:#666666;
+            line-height: 60px / $ppr;
+            flex-grow:1;
+        }
+        .more{
+            flex-grow:0;
+            margin-right: 5px / $ppr;
+            @include getIcon($icons,'more');
+        }
+    }
+}
+
+.body{
+    @include size(100%,auto);
+    background-color:#F5F5F5;
+    margin-bottom: 100px / $ppr;
+    .slide-wrap{
+        position:relative;
+        @include size(100%,585px / $ppr);
+        overflow:hidden;
+        .slider{
+            @include size(auto,100%);
+            font-size: 0;
+            li{
+                display: flex;
+                align-items:center;
+                justify-content: center;
+            }
+        }
+        .slide{
+            display: inline-block;
+            @include size(100%,100%);
+            img{
+                @include size(100%,auto);
+            }
+        }
+        // .controls{
+        .islider-dot-wrap{
+            position:absolute;
+            display: flex;
+            flex-direction:row;
+            justify-content:flex-end; // 垂直居中
+            align-items: center; // 水平居右
+            @include size(260px / $ppr,20px / $ppr);
+            left:auto;
+            right:68px / $ppr;
+            bottom:120px / $ppr;
+            li{
+                @include size(25px / $ppr,25px / $ppr);
+                margin: 0 0 0 15px / $ppr;
+                flex-grow:0;
+                border-radius:13px / $ppr;
+                background-color:#C6C6C7;
+                border:none;
+            }
+            .active{
+                @include size(50px / $ppr,25px / $ppr);
+                background-color:rgba(205,104,29,.9);
+            }
+        }
+        
+        .infos{
+            position:absolute;
+            display: flex;
+            flex-direction:row;
+            justify-content:center; // 垂直居中
+            align-items: center; // 水平居右
+            @include size(100%,105px / $ppr);
+            bottom:0;
+            background-color: rgba(4,2,2,.6);
+        }
+        .logo-g{
+            position:relative;
+            flex-grow:0;
+            @include size(120px / $ppr,120px / $ppr);
+            margin-left: 15px / $ppr;
+            bottom:15px / $ppr;
+        }
+        .desc{
+            @include size(auto,100%);
+            flex-grow:1;
+            padding-left:15px / $ppr;
+            margin-right: 10px / $ppr;
+            .name{
+                @include size(100%,auto);
+                padding:10px / $ppr 0;
+                @include font-dpr(18px);
+                font-weight: bold;
+                color:#FFFFFF;
+                border-bottom:1px solid #716861;
+            }
+            .detail{
+                @include size(100%,auto);
+                padding:10px / $ppr 0;
+                @include font-dpr(12px);
+                color:#FFFFFF;
+            }
+        }
+        .download{
+            display: inline-block;
+            @include size(215px / $ppr, 58px / $ppr);
+            margin-right: 15px / $ppr;
+            flex-grow:0;
+            background-color:#F87E18;
+            color:#FFFDFD;
+            @include font-dpr(15px);
+            border-radius:15px / $ppr;
+            text-align: center;
+            line-height: 58px / $ppr;
+        }
+    }
+    .item{
+        @include size(733px / $ppr,auto);
+        margin:30px auto 0;
+        border-radius:10px / $ppr;
+        box-shadow:3px 5px #E5E5E5;
+        background-color: #FFFFFF;
+    }
+    .games-wrap{
+        .header{
+            border-color:#F87F16;
+            .i-box{
+                background-color: #F87E19;
+            }
+        }
+        .games{
+            @include size(712px / $ppr,auto);
+            display: flex;
+            flex-direction:row;
+            justify-content:center; // 垂直居中
+            align-items: stretch; // 水平居中
+            margin:0 auto;
+            padding:26px / $ppr 0 22px / $ppr;
+            .game{
+                position:relative;
+                flex-grow:1;
+                margin-right: 12px / $ppr;
+                &:last-child{
+                    margin-right: 0;
+                }
+            }
+            .game-pic-box{
+                display: block;
+                position:relative;
+                @include size(100%,200px / $ppr);
+                overflow:hidden;
+            }
+            .game-pic{
+                @include size(100%,auto);
+            }
+            .game-type{
+                position:absolute;
+                top:0;
+                right: 0;
+            }
+            .new{
+                @include getIcon($icons,'new');
+            }
+            .hot{
+                @include getIcon($icons,'hot');
+            }
+            .name{
+                padding:10px / $ppr 15px / $ppr;
+                @include font-dpr(15px);
+                color:#666666;
+            }
+            .stars{
+                display: inline-block;
+                margin-left: 15px / $ppr;
+                @include getIcon($icons,'star');
+            }
+            .load{
+                position:absolute;
+                @include getIcon($icons,'load');
+                right: 0;
+                bottom:0;
+            }
+        }
+    }
+    .infos-wrap{
+        .header{
+            border-color:#59BFCE;
+            .i-box{
+                background-color: #59BFCD;
+            }
+        }
+        .infos{
+            @include size(655px / $ppr,auto);
+            margin:0 auto;
+            padding:31px / $ppr 0 41px / $ppr;
+        }
+        .info{
+            padding:24px / $ppr 14px / $ppr;
+            border-bottom:2px dashed #DEDEDE;
+            font-size: 0;
+            &:last-child{
+                border-bottom:none;
+            }
+            a{
+                color:#535353;
+                &:hover{
+                    color:#B0B0B0;
+                }
+                &:active{
+                    color:#B0B0B0;
+                }
+            }
+            .type{
+                display: inline-block;
+                margin-right: 10px / $ppr;
+            }
+            .s-event{
+                @include getIcon($icons,'s-event');
+            }
+            .s-news{
+                @include getIcon($icons,'s-news');
+            }
+            .topic{
+                display: inline-block;
+                @include size(540px / $ppr,auto);
+                overflow:hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                @include font-dpr(13px);
+            }
+        }
+    }
+    .fb-wrap{
+        .header{
+            border-color:#49619F;
+            .i-box{
+                background-color: #4962A4;
+            }
+        }
+        .fb{
+            @include size(711px / $ppr,166px / $ppr);
+            margin:20px / $ppr 20px / $ppr 10px / $ppr;
+            overflow:hidden;
+        }
+    }
+    .pc-wrap{
+        @include size(100%,110px / $ppr);
+        text-align: center;
+        .pc{
+            @include getIcon($icons,'pc');
+        }
+        .go-pc{
+            display: block;
+            padding:6px / $ppr 0;
+            @include font-dpr(10px);
+            color:#909090;
+        }
+    }
+}

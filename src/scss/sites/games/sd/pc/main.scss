@@ -1,0 +1,267 @@
+@charset "utf-8";
+@import "common/_reset.scss";
+
+@mixin size($width,$height){
+	width: $width;
+	height: $height;
+}
+@mixin bg($bg-info){
+	background: $bg-info;
+}
+@mixin coverBg($bg-info){
+	background: $bg-info;
+	background-size: cover;
+}
+@mixin containBg($bg-info){
+	background: $bg-info;
+	background-size: contain;
+}
+@mixin hundredBg($bg-info){
+	background: $bg-info;
+	background-size: 100%;
+}  
+  
+$icon-spacing:4px;
+$icon-layout:"horizontal";
+@import "sites/games/sd/pc/icon/*.png";
+@include all-icon-sprites;
+
+body{
+	@include bg(#ffffff);
+}
+.wrap{
+	@include size(1200px,auto);
+	margin:0 auto;
+}
+.head{
+	@include size(100%,71px);
+	@include bg(url(http://localhost:8889/img/sites/games/sd/pc/bg-nav.png) center no-repeat);
+	.head-desc{
+		position: relative;
+		@include size(285px,100%);
+
+		.head-logo{
+			position: absolute;
+			z-index: 1;
+			@include size(101px,101px);
+			top:5px;
+			@include bg(url(http://localhost:8889/img/sites/games/sd/pc/logo.png));
+		}
+		.head-title{
+			@include size(175px,100%);
+			margin-left: 110px;
+			font-size: 16px;
+			line-height: 1.6;
+			color: #fff;
+		}
+		.game-name{
+			display: block;
+			font-size: 26px;
+			font-weight: bold;
+			color: #fff;
+		}
+	}
+	.head-nav{
+		@include size(560px,100%);
+		line-height: 71px;
+		font-size: 18px;
+		color: #fff;
+		.nav-item{
+			@include size(97px,100%);
+			margin-right: 15px;
+			text-align: center;
+			cursor: pointer;
+			&:hover{
+				color: #564374;
+			}
+		}
+		.nav-item-on{
+			color:#564374;
+		}
+	}
+}
+
+.main{
+	@include size(100%,auto);
+}
+.main-head{
+	position: relative;
+	@include size(100%,585px);
+	@include bg(url(http://localhost:8889/img/sites/games/sd/pc/bg-head.jpg) top center no-repeat);
+
+	.main-icons{
+		position: absolute;
+		height: 130px;
+		bottom:0;
+		left: 50%;
+		margin-left: -600px;
+	}
+	.qr-code{
+		@include size(120px,120px);
+		@include containBg(url(http://localhost:8889/img/sites/games/sd/pc/liantu.png));
+	}
+	.stores{
+		overflow: hidden;
+		@include size(560px,52px);
+		margin-top:60px;
+	}
+	.store{
+		float: left;
+		@include size(175px,52px);
+		margin-left: 20px;
+	}
+	.google{
+		@include size(150px,52px);
+	}
+}
+.main-body{
+	min-height:750px;
+	.more{
+		float: right;
+		font-size: 12px;
+		cursor: pointer;
+		&:hover{
+			color:#E67E23;
+		}
+	}
+	.main-left{
+		@include size(700px,auto);
+
+		.carousel{
+			@include size(100%,307px);
+			margin-bottom: 20px;
+		}
+		.fb-gp{
+			@include size(auto,auto);
+			padding: 15px;
+			@include bg(rgb(246,247,248));
+		}
+		.fbgp-head{
+			@include size(100%,35px);
+			line-height: 35px;
+			font-size: 18px;
+			color: #484848;
+		}
+		.fb-title{
+			@include size(48%,100%);
+			border-right:4px solid #fff;
+		}
+		.gp-title{
+			overflow: hidden;
+			@include size(auto,100%);
+			padding-left:15px;
+		}
+		.fbgp-body{
+			border-top:4px solid #fff;
+		}
+		.fb{
+			@include size(48%,200px);
+		}
+		.gp{
+			overflow: hidden;
+			border-left:4px solid #fff;
+			padding:{
+				left:15px;
+				right: 15px;
+				top:15px;
+			}
+		}
+		.pic-game{
+			@include size(330px,143px);
+			margin-bottom: 15px;
+		}
+	}
+	.main-right{
+		overflow: hidden;
+		padding:15px;
+		.info{
+			margin-bottom: 20px;
+		}
+		.info-head{
+			@include size(100%,50px);
+			line-height: 50px;
+			border-bottom:2px solid #E2E6E9;
+			.info-nav{
+				float: left;
+				@include size(75px,100%);
+				text-align:center;
+				font-size: 12px;
+				cursor: pointer;
+				&:hover{
+					color:#E67E23;
+					border-bottom:2px solid #E67E23;
+				}
+			}
+			.more{
+				float: right;
+			}
+		}
+		.info-body{
+			@include size(100%,auto);
+			.info-item{
+				@include size(100%,30px);
+				margin:10px 0;
+				line-height: 30px;
+			}
+			.info-content{
+				float: left;
+				color: #575757;
+				&:hover{
+					color:#E67E23;
+				}
+			}
+			.info-time{
+				float: right;
+				color: #979797;
+			}
+		}
+		.raider{
+			@include size(100%,auto);
+		}
+		.raider-head{
+			@include size(100%,35px);
+			line-height: 35px;
+			padding-left:15px;
+			margin-bottom: 30px;
+			font-size: 18px;
+		}
+	}
+}
+.foot{
+	@include size(100%,100px);
+	@include bg(#000);
+	color:#6F7270;
+	line-height:100px;
+	.foot-wrap{
+		@include size(1200px,100px);
+		margin:0 auto;
+		@include bg(#000);
+	}
+	.gm{
+		float: left;
+		margin-left: 30px;
+		margin-top:33px;
+		@include size(112px,34px);
+	}
+	.rights{
+		float: left;
+		margin-left: 30px;
+	}
+	.foot-desc{
+		float: left;
+		margin-left: 30px;
+		margin-top:18px;
+		@include size(445px,auto);
+	}
+	.logo-15{
+		float: left;
+		@include size(44px,44px);
+		margin-top:10px;
+	}
+	.descs{
+		float: left;
+		margin-left: 25px;
+		line-height: 1.6;
+		list-style: square;
+	}
+}

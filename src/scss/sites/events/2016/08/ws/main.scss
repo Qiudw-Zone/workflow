@@ -1,0 +1,245 @@
+@charset "utf-8";
+/**
+ * @func 剑刃跨服活动
+ * @author 寒影
+ * @date 2016-08-03
+ */
+// @import "common/_reset.scss";
+@mixin size($width,$height){
+    width: $width;
+    height: $height;
+}
+@mixin bg($bg-info,$type:false){
+    background: $bg-info;
+    @if $type {
+        background-size: $type;
+    }
+}
+@mixin font-dpr($font-size){
+    font-size: $font-size;
+
+    [data-dpr="2"] & {
+        font-size: $font-size * 2;
+    }
+
+    [data-dpr="3"] & {
+        font-size: $font-size * 3;
+    }
+} 
+ 
+/* $icons-spacing:2px;
+$icons-layout:"horizontal";
+@import "sites/events/2016/08/ws/icons/*.png";
+@include all-icons-sprites; */
+
+$baseurl:"http://localhost:8889/img/sites/events/2016/08/ws/";
+body{
+    color:red;
+}
+.off{
+    display: none !important;
+}
+.page{
+    @include size(auto,auto);
+    @include bg(url($baseurl+"bg-page.jpg") left no-repeat);
+    .wrap{
+        position: relative;
+        @include size(auto,889px);
+        min-width: 1461px;
+        margin-left:459px;
+        .left{
+            position:absolute;
+            @include size(120px,889px);
+            margin-left:-120px;
+        }
+    }
+}
+
+.navs{
+    position: relative;
+    top:180px;
+    @include size(100%,auto);
+    li{
+        position: relative;
+        margin-bottom: 30px;
+        cursor: pointer;
+    }
+    .nav-index{
+        @include size(37px,66px);
+        left:19px;
+    }
+    .nav-index-h{
+        @include size(82px,66px);
+        left:19px;
+    }
+    .nav-jobs{
+        @include size(76px,52px);
+    }
+    .nav-jobs-h{
+        @include size(102px,52px);
+    }
+    .nav-reserve{
+        @include size(76px,68px);
+    }
+    .nav-reserve-h{
+        @include size(103px,68px);
+    }
+    .nav-story{
+        @include size(77px,57px);
+    }
+    .nav-story-h{
+        @include size(101px,57px);
+    }
+    .nav-tese{
+        @include size(77px,65px);
+    }
+    .nav-tese-h{
+        @include size(101px,65px);
+    }
+}
+
+.main{
+    @include size(100%,100%);
+    .box{
+        @include size(100%,100%);
+    }
+    .index-wrap{
+        @include bg(url($baseurl+"bg-index.jpg") left center no-repeat);
+    }
+    .story-wrap{
+        position:relative;
+        @include bg(url($baseurl+"bg-story.jpg") left center no-repeat);
+        .slider{
+            position: absolute;
+            @include size(665px,280px);
+            left:30px;
+            bottom:50px;
+            font-size: 0;
+        }
+        .control{
+            display: inline-block;
+            *display:inline;
+            *zoom:1;
+            @include size(53px,119px);
+            transform: translateY(-50%);
+            -webkit-transform: translateY(-50%);
+            *margin-top:-59px;
+            cursor: pointer;
+        }
+        .gallery{
+            display: inline-block;
+            *display:inline;
+            *zoom:1;
+            @include size(521px,276px);
+            margin:0 15px;
+            background-color:red;
+            border: 2px solid #9C7E39;
+            overflow:hidden;
+            .imgs{
+                @include size(300%,100%);
+            }
+            img{
+                float: left;
+                width:521px;
+            }
+        }
+    }
+    .jobs-wrap{
+        @include bg(url($baseurl+"bg-xh.jpg") left center no-repeat);
+        .menus{
+            @include size(602px,55px);
+            position: relative;
+            top: 215px;
+            left: 50px;
+            border-bottom:1px solid #EBE5DB;
+            .menu{
+                float: left;
+                @include size(150px,100%);
+                line-height: 55px;
+                text-align: center;
+                font-size:24px;
+                color:#775C4F;
+                cursor: pointer;
+                &:hover{
+                    color:#9C7E39;
+                    border-bottom:2px solid #D76A35;
+                }
+            }
+            .nav-icon{
+                position:relative;
+                display: inline-block;
+                *display:inline;
+                *zoom:1;
+                @include size(22px,22px);
+                margin-right: 5px;
+                top:4px;
+            }
+        }
+    }
+    .tese-wrap{
+        @include bg(url($baseurl+"bg-tese-1.jpg") left center no-repeat);
+        .direc{
+            position: absolute;
+            @include size(53px,119px);
+            top:335px;
+            cursor: pointer;
+        }
+        .direc-left{
+            left:6px;
+        }
+        .direc-right{
+            left:987px;
+        }
+    }
+    .reserve-wrap{
+        @include bg(url($baseurl+"bg-reserve.jpg") left center no-repeat);
+        .container{
+            position: relative;
+            @include size(327px,auto);
+            left:338px;
+            top:360px;
+            .region{
+                @include size(100%,45px);
+                padding-left: 5px;
+                margin-bottom: 10px;
+                border-radius:5px;
+                background-color:#DCD3CC;
+                border-color:#D5CAC2;
+                font-size: 18px;
+                outline: none;
+            }
+            .phone-wrap{
+                @include size(100%,45px);
+                position:relative;
+                margin-bottom: 30px;
+                font-size: 18px;
+            }
+            .phone{
+                @include size(277px,45px);
+                padding-left:50px;
+                background-color:#DCD3CC;
+                color:#232C33;
+                border:none;
+                font-size: 18px;
+                border-radius:5px;
+                outline: none;
+            }
+            .prev{
+                position: absolute;
+                @include size(45px,45px);
+                line-height: 45px;
+                text-align: center;
+                color:#998F87;
+                border-right:1px solid #D2C8C0;
+            }
+            .btn-reserve{
+                @include size(327px,89px);
+                @include bg(url($baseurl+"btn-reserve.jpg"));
+                cursor: pointer;
+                &:hover{
+                    @include bg(url($baseurl+"btn-reserve-h.jpg"));
+                }
+            }
+        }
+    }
+}

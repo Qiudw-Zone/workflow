@@ -1,0 +1,70 @@
+@charset "utf-8";
+body,ul,li,dl,dd,h1,h2,h3,h4,h5,img ,p,ol{
+	padding:0;
+	margin:0;
+	font-size:12px;
+      font-family: Arial;
+	font-weight:normal;
+	border:none;
+}
+ul,li{
+	list-style-type: none;
+}
+
+
+a{
+      text-decoration: none;
+}
+// 作用：引用小图标
+// $iconName:小图标名称，不带后缀
+// $isLineHeight：是否设置行高等于图标高度，默认是否
+// $paddingLeft: 左内填充，默认是0
+// $paddingRight: 右内填充，默认是0
+@import "CCS/placeholders/inline-block";//设置为行内元素
+@import "common/commonIcons/*.png";
+@mixin pie{}
+@mixin commonIcon($commonIconName,$isLineHeight:false,$paddingLeft:0,$paddingRight:0){
+                                    $width: commonIcons-sprite-width($commonIconName);
+                                    $height: commonIcons-sprite-height($commonIconName);
+                                    @extend %inline-block;
+                                    width: $width+(-($paddingLeft+$paddingRight));
+                                    height: $height;
+                                    padding-left:$paddingLeft;
+                                    @if $isLineHeight == true {
+                                    	line-height: $height;
+                                    }
+                                    @include commonIcons-sprite($commonIconName);
+}
+
+@mixin loginIcon($loginIconName,$isLineHeight:false,$paddingLeft:0,$paddingRight:0){
+                                    $width: loginIcons-sprite-width($loginIconName);
+                                    $height: loginIcons-sprite-height($loginIconName);
+                                    @extend %inline-block;
+                                    width: $width+(-($paddingLeft+$paddingRight));
+                                    height: $height;
+                                    padding-left:$paddingLeft;
+                                    @if $isLineHeight == true {
+                                          line-height: $height;
+                                    }
+                                    @include loginIcons-sprite($loginIconName);
+}
+@mixin flag($flagName,$isLineHeight:false,$paddingLeft:0,$paddingRight:0){
+                                    $width: flags-sprite-width($flagName);
+                                    $height: flags-sprite-height($flagName);
+                                    @extend %inline-block;
+                                    width: $width+(-($paddingLeft+$paddingRight));
+                                    height: $height;
+                                    padding-left:$paddingLeft;
+                                    @if $isLineHeight == true {
+                                    	line-height: $height;
+                                    }
+                                    @include flags-sprite($flagName);
+}
+$globalWidth:1144px;
+
+.middle{
+	width:$globalWidth;
+	position:relative;
+	@extend %horizontal-center;
+
+}

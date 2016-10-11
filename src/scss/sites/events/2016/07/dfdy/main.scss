@@ -1,0 +1,134 @@
+@charset "utf-8";
+@import "common/reset.scss";
+ 
+$icons-spacing:4px;
+$all-icons-sprites-layout:"horizontal";
+@import "sites/events/2016/07/dfdy/pc/icons/*.png";
+@include all-icons-sprites;
+
+$baseUrl:"http://localhost:8889/img/sites/events/2016/07/dfdy/pc/";
+
+body{
+    @include bg(rgb(40,0,2));
+}
+.dib{
+    display: inline-block;
+    *display:inline;
+    *zoom:1;
+}
+.wrap{
+    @include size(1400px,auto);
+    margin:0 auto;
+}
+.page-head{
+    @include size(100%,859px);
+    min-width: 1400px;
+    margin:0 auto;
+    @include bg(url($baseUrl+'bg-head.jpg') no-repeat center);
+    .logo-df{
+        position: relative;
+        @include size(423px,116px);
+        top:30px;
+        @include bg(url($baseUrl+'logo-df.png'));
+    }
+    .load-wrap{
+        @include size(auto,108px);
+        margin:{
+            top:560px;
+            left:100px;
+        }
+        font-size: 0;
+        .load{
+            margin-right: 10px;
+            display: inline-block;
+            *display:inline;
+            *zoom:1;
+        }
+        .load-df{
+            @include size(107px,107px);
+            @include bg(url($baseUrl+'load-df.png'));
+        }
+        .load-qr{
+            @include size(107px,107px);
+        }
+        .stores{
+            @include size(164px,105px);
+        }
+        .store{
+            display: block;
+            @include size(164px,52px);
+            margin-bottom: 2px;
+        }
+        .fb-bh{
+            @include size(105px,105px);
+        }
+        .home{
+            position:relative;
+            @include size(134px,43px);
+            top:-40px;
+            text-align: center;
+            color:#fff;
+            line-height: 43px;
+            font-size: 20px;
+        }
+    }
+}
+
+.page-body{
+    @include size(1400px,auto);
+    margin:0 auto;
+    text-align: center;
+    .item{
+        margin-bottom: 30px;
+    }
+}
+.page-foot{
+    @include size(100%,auto);
+    padding:20px 0;
+    @include bg(url($baseUrl+'bg-foot.png') no-repeat top center);
+    .footer{
+        @include size(1090px,70px);
+        margin:0 auto;
+        font-size: 0;
+        color: #7B5C5C;
+    }
+    .gm-wrap{
+        float: left;
+        @include size(640px,100%);
+        margin-right: 10px;
+        .gm{
+            @include size(240px,70px);
+            margin-right: 10px;
+            @include bg(url($baseUrl+'logo-gm.png'));
+        }
+        .desc{
+            position: relative;
+            line-height: 1.6;
+            top: -15px;
+            font-size: 12px;
+        }
+    }
+    .fifth-wrap{
+        overflow:hidden;
+        .fifth{
+            position: relative;
+            @include size(48px,48px);
+            margin-right: 10px;
+            top: -5px;
+        }
+        .roles{
+            font-size: 12px;
+        }
+        .role{
+            padding:5px 0px;
+        }
+        .icon-square{
+            display: inline-block;
+            *display:inline;
+            *zoom:1;
+            @include size(10px,10px);
+            @include bg(#7B5C5C);
+            margin-right:5px;
+        }
+    }
+}

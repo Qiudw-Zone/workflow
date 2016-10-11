@@ -1,0 +1,94 @@
+@charset "utf-8";
+/**
+ * @func 六龙御天新马簽到
+ * @author 寒影
+ * @date 2016-07-25
+ */
+@import "common/_reset.scss";
+
+$icons-spacing:2px;
+$all-icons-sprites-layout:"horizontal";
+@import "sites/platform/jyjx/icons/*.png";
+@include all-icons-sprites;
+
+.page{
+    @include size(auto,556px);
+    @include bg(url(http://localhost:8889/img/sites/platform/jyjx/bg-body.jpg) no-repeat top center);
+}
+
+.main{
+    @include size(1013px,auto);
+    margin:0 auto;
+    .sifus{
+        @include size(383px,auto);
+        padding:10px;
+        margin-left:110px;
+        font-size: 0;
+        .sifu{
+            display: inline-block;
+            *display:inline;
+            *zoom:1;
+            @include size(179px,40px);
+            color: #F9F1EB;
+            font-size: 14px;
+            line-height: 40px;
+            text-align: center;
+            &:first-child{
+                margin-right: 20px;
+            }
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+    }
+    .sifu-entrance{
+        @include size(400px,auto);
+        padding: 5px 0 10px;
+        margin-left:110px;
+        text-align: right;
+        font-size: 12px;
+        .entrance{
+            @include size(30px,12px);
+            padding:5px 10px;
+            border:1px solid #000;
+        }
+        .go{
+            display: inline-block;
+            *display:inline;
+            *zoom:1;
+            @include size(auto,24px);
+            cursor: pointer;
+            text-align: center;
+            outline: none;
+        }
+    }
+    .all-sifu{
+        @include size(410px,110px);
+        padding:10px 0;
+        margin-left:110px;
+        @include bg(rgba(167,157,136,.7));
+        font-size: 0;
+        overflow-y: scroll;
+        .sifu-item{
+            display: inline-block;
+            *display:inline;
+            *zoom:1;
+            @include size(117px,26px);
+            margin-left: 10px;
+            margin-bottom: 10px;
+            color: #F9F1EB;
+            font-size: 14px;
+            line-height: 26px;
+            text-align: center;
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+    }
+    .lastly{
+        padding-top:210px;
+    }
+    .recommend{
+        margin-top:20px;
+    }
+}

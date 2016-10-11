@@ -1,0 +1,262 @@
+@charset "utf-8";
+/**
+ * @func G妹移動版
+ * @author 寒影
+ * @date 2016-08-29
+ */
+@import "common/_reset.scss";
+
+$icons: sprite-map("sites/platform/gm/icons/*.png", $spacing: 1px,$layout: horizontal);
+$ppr:750px / 10 / 1rem;
+@import "helpers/_spritesM.scss";
+
+$baseUrl:"http://10.4.9.25:3001/img/sites/platform/gm/";
+.hide{
+    display: none;
+}
+.wrap{
+    @include size(100%,auto);
+    .head{
+        position: fixed;
+        z-index: 9;
+
+        display: flex;
+        flex-direction:row;
+        justify-content:center; // 垂直居中
+        align-items: center; // 水平居中
+
+        @include size(100%,80px / $ppr);
+        @include bg(url($baseUrl+'bg-banner.png') repeat-x);
+        .logo-gm{
+            @include getIcon($icons,'logo-gm');
+        }
+        .logo-gc{
+            @include getIcon($icons,'logo-gc');
+        }
+        .login{
+            position:absolute;
+            top:22px / $ppr;
+            right:20px / $ppr;
+            @include size(117px / $ppr,36px / $ppr);
+            @include getIcon($icons,'bg-login');
+        }
+    }
+    .foot{
+        position:fixed;
+        @include size(100%,100px / $ppr);
+        padding:0 14px / $ppr;
+        bottom:0;
+        background-color:#fff;
+        border-top:2px solid #F87E18;
+        .navs{
+            display: flex;
+            flex-direction:row;
+            justify-content:center; // 垂直居中
+            align-items: stretch; // 撐高容器
+            @include size(100%,100px / $ppr);
+        }
+        .nav{
+            flex-grow:1;
+            text-align: center;
+            &:hover{
+                background-color: #F87E18;
+                .name{
+                    color:#fff;
+                }
+            }
+            i,span{
+                display: block;
+                margin:7px / $ppr auto 0;
+            }
+            .name{
+                color:#666666;
+                @include font-dpr(12px);
+                text-align: center;
+            }
+            .home{
+                @include size(50px / $ppr,45px / $ppr);
+                @include getIcon($icons,'home');
+            }
+            .home-h{
+                @include size(50px / $ppr,45px / $ppr);
+                @include getIcon($icons,'home-h');
+            }
+            .game{
+                @include size(55px / $ppr,36px / $ppr);
+                @include getIcon($icons,'game');
+            }
+            .game-h{
+                @include size(55px / $ppr,36px / $ppr);
+                @include getIcon($icons,'game-h');
+            }
+            .store{
+                @include size(48px / $ppr,48px / $ppr);
+                @include getIcon($icons,'store');
+            }
+            .store-h{
+                @include size(48px / $ppr,48px / $ppr);
+                @include getIcon($icons,'store-h');
+            }
+            .gift{
+                @include size(48px / $ppr,49px / $ppr);
+                @include getIcon($icons,'gift');
+            }
+            .gift-h{
+                @include size(48px / $ppr,49px / $ppr);
+                @include getIcon($icons,'gift-h');
+            }
+            .service{
+                @include size(50px / $ppr,47px / $ppr);
+                @include getIcon($icons,'service');
+            }
+            .service-h{
+                @include size(50px / $ppr,47px / $ppr);
+                @include getIcon($icons,'service-h');
+            }
+        }
+        .nav-on{
+            background-color: #F87E18;
+            .name{
+                color:#fff;
+            }
+        }
+    }
+    .pop{
+        position:absolute;
+        @include size(409px / $ppr,246px / $ppr);
+        padding:0 20px / $ppr 0 42px / $ppr;
+        left:50%;
+        top:50%;
+        transform:translate(-50%,-50%);
+        border-radius:10px / $ppr;
+        background-color:rgba(22,22,20,.9);
+        box-shadow:0 0 10px / $ppr #4F4239;
+        opacity: 0;
+        .load-head{
+            display: flex;
+            align-items:center;
+            justify-content: space-between;
+            @include size(100%,55px / $ppr);
+        }
+        .load-game{
+            @include getIcon($icons,'load-game');
+            flex-grow:0;
+            margin-right: 25px / $ppr;
+        }
+        .load-text{
+            flex-grow: 1;
+            @include font-dpr(12px);
+            color:#FFFFFF;
+        }
+        .close{
+            flex-grow:0;
+            @include getIcon($icons,'close');
+        }
+        .loads{
+            @include size(100%,auto);
+        }
+        .load{
+            display: flex;
+            align-items:center;
+            justify-content: flex-star;
+            @include size(100%,95px / $ppr);
+            @include font-dpr(15px);
+            color:#fff;
+            border:1px solid #383838;
+            border-left:none;
+            border-right:none;
+        }
+        .load-type{
+            flex-grow: 0;
+            margin-right: 25px / $ppr;
+        }
+        .load-gg{
+            @include getIcon($icons,'load-gg');
+        }
+        .load-apk{
+            @include getIcon($icons,'load-apk');
+        }
+    }
+}
+.body{
+    padding:20px / $ppr 10px / $ppr;
+    margin-bottom: 100px / $ppr;
+    padding-top:100px / $ppr;
+    background-color:#F5F5F5;
+    .g-item{
+        position:relative;
+        @include size(100%,202px / $ppr);
+        margin-bottom: 40px / $ppr;
+        overflow: hidden;
+        border-radius:10px / $ppr;
+        box-shadow:3px / $ppr 5px / $ppr #E5E5E5;
+        .pic-head{
+            position:absolute;
+            @include size(138px / $ppr, 138px / $ppr);
+            overflow:hidden;
+            left:10px / $ppr;
+            bottom:10px / $ppr;
+        }
+    }
+    .pic-box{
+        position:relative;
+        @include size(732px / $ppr, 119px / $ppr);
+        .pic{
+            @include size(100%,auto);
+        }
+        .g-info{
+            position:absolute;
+            bottom:0;
+            left:0;
+            @include getIcon($icons,'game-pic-over');
+            line-height: 66px / $ppr;
+        }
+        .g-name{
+            margin:0 10px / $ppr 0 158px / $ppr;
+            @include font-dpr(18px);
+            color:#FFFFFF;
+        }
+        .g-size{
+            @include font-dpr(10px);
+            color:#FAFAFA;
+        }
+        .g-type{
+            position:absolute;
+            z-index: 1;
+            top:0;
+            right: 0;
+        }
+        .hot{
+            @include getIcon($icons,'hot');
+        }
+        .new{
+            @include getIcon($icons,'new');
+        }
+    }
+    .desc-box{
+        position:relative;
+        display: flex;
+        @include size(auto,83px / $ppr);
+        justify-content:space-between;
+        align-items:center;
+        padding-left:158px / $ppr;
+        .g-descs{
+            flex-grow:1;
+            .g-desc{
+                margin:8px / $ppr 0;
+                @include font-dpr(11px);
+                color: #959595;
+            }
+        }
+        .g-download{
+            display: inline-block;
+            @include size(150px / $ppr, 60px / $ppr);
+            line-height: 60px / $ppr;
+            text-align: center;
+            color:#fff;
+            @include font-dpr(15px);
+            background-color:#F87E19;
+            border-radius:10px / $ppr;
+        }
+    }
+}

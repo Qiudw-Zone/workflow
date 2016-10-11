@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>easySlide</title>
+	<link rel="stylesheet" href="css/easySlide.css">
+</head>
+<body>
+	<div id="fadeSlide">
+		<!-- 轮播条目 -->
+		<div class="slideItem">
+			<img src="images/1.jpg">
+		</div>
+		<div class="slideItem">
+			<img src="images/2.jpg">
+		</div>
+		
+		<!-- 上下张 -->
+		<a id="prev"></a>
+		<a id="next"></a>
+		<!-- 导航 -->
+		<div id="navigator">
+				<ul>
+					<li><a ></a></li>
+					<li><a ></a></li>
+					
+				</ul>
+		</div>
+	</div>
+	
+	<script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+	<script type="text/javascript" src="js/jquery.fadeSlide.js"></script>
+	<script type="text/javascript">
+	$(function(){
+		$("#fadeSlide").fadeSlide({
+			index:0,
+			hoverPause:true
+		});
+		
+		
+		
+		
+
+		
+		
+	});
+	</script>
+</body>
+</html>

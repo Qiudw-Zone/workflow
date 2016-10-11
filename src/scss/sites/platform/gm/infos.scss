@@ -1,0 +1,317 @@
+@charset "utf-8";
+/**
+ * @func G妹移動版
+ * @author 寒影
+ * @date 2016-08-31
+ */
+@import "common/_reset.scss";
+@import "helpers/_mixins.scss";
+
+$icons: sprite-map("sites/platform/gm/icons/*.png", $spacing: 1px,$layout: horizontal);
+$ppr:750px / 10 / 1rem;
+@import "helpers/_spritesM.scss";
+
+$baseUrl:"http://10.4.9.25:3001/img/sites/platform/gm/";
+a{
+    -webkit-tap-highlight-color:rgba(0, 0, 0, 0); /* 取消链接高亮 */
+}
+
+.hide{
+    display: none;
+}
+.wrap{
+    @include size(100%,auto);
+    .head{
+        position: fixed;
+        z-index: 9;
+        display: flex;
+        flex-direction:row;
+        justify-content:center; // 垂直居中
+        align-items: center; // 水平居中
+        box-shadow:0 3px 5px #D8D8D8;
+
+        @include size(100%,80px / $ppr);
+        @include bg(url($baseUrl+'bg-banner.png') repeat);
+        .logo-gm{
+            @include getIcon($icons,'logo-gm');
+        }
+        .logo-gc{
+            @include getIcon($icons,'logo-gc');
+        }
+        .logo-lb{
+            @include getIcon($icons,'logo-lb');
+        }
+        .logo-zx{
+            @include getIcon($icons,'logo-zx');
+        }
+        .login{
+            position:absolute;
+            top:22px / $ppr;
+            right:20px / $ppr;
+            @include getIcon($icons,'bg-login');
+        }
+    }
+    .foot{
+        position:fixed;
+        @include size(100%,100px / $ppr);
+        padding:0 14px / $ppr;
+        bottom:0;
+        background-color:#fff;
+        border-top:2px solid #F87E18;
+        .navs{
+            display: flex;
+            flex-direction:row;
+            justify-content:center; // 垂直居中
+            align-items: stretch; // 撐高容器
+            @include size(100%,100px / $ppr);
+        }
+        .nav{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-grow:1;
+            text-align: center;
+            &:hover{
+                background-color: #F87E18;
+                .name{
+                    color:#fff;
+                }
+            }
+            i,span{
+                display: block;
+                margin:7px / $ppr auto 0;
+            }
+            .name{
+                color:#666666;
+                @include font-dpr(12px);
+                text-align: center;
+            }
+            .home{
+                @include size(50px / $ppr,45px / $ppr);
+                @include getIcon($icons,'home');
+            }
+            .home-h{
+                @include size(50px / $ppr,45px / $ppr);
+                @include getIcon($icons,'home-h');
+            }
+            .game{
+                @include size(55px / $ppr,36px / $ppr);
+                @include getIcon($icons,'game');
+            }
+            .game-h{
+                @include size(55px / $ppr,36px / $ppr);
+                @include getIcon($icons,'game-h');
+            }
+            .store{
+                @include size(48px / $ppr,48px / $ppr);
+                @include getIcon($icons,'store');
+            }
+            .store-h{
+                @include size(48px / $ppr,48px / $ppr);
+                @include getIcon($icons,'store-h');
+            }
+            .gift{
+                @include size(48px / $ppr,49px / $ppr);
+                @include getIcon($icons,'gift');
+            }
+            .gift-h{
+                @include size(48px / $ppr,49px / $ppr);
+                @include getIcon($icons,'gift-h');
+            }
+            .service{
+                @include size(50px / $ppr,47px / $ppr);
+                @include getIcon($icons,'service');
+            }
+            .service-h{
+                @include size(50px / $ppr,47px / $ppr);
+                @include getIcon($icons,'service-h');
+            }
+        }
+        .nav-on{
+            background-color: #F87E18;
+            .name{
+                color:#fff;
+            }
+        }
+    }
+}
+.body{
+    padding:20px / $ppr 10px / $ppr;
+    margin-bottom: 100px / $ppr;
+    padding-top:100px / $ppr;
+    background-color:#F5F5F5;
+    .if-head{
+        @include size(100%,auto);
+        padding-top:20px / $ppr;
+        margin-bottom: 28px / $ppr;
+        .if-navs{
+            display: flex;
+            @include size(695px / $ppr,62px / $ppr);
+            margin: 0 auto;
+            border:2px solid #F87E19;
+            border-radius:10px / $ppr;
+            background-color: #FFFFFF;
+            .if-nav{
+                position:relative;
+                display: flex;
+                flex-grow: 1;
+                align-items:center;
+                justify-content: center;
+                color:#6C6C6C;
+                @include font-dpr(18px);
+            }
+            .if-nav-on{
+                background-color:#F87E19;
+                color:#fff;
+                &:after{
+                    content: '';
+                    position:absolute;
+                    @include size(0,0);
+                    left:50%;
+                    bottom:-2px / $ppr;
+                    border:7px / $ppr solid transparent;
+                    border-bottom-color:#FEFAD7;
+                }
+            }
+            .if-type{
+                margin-right: 14px / $ppr;
+            }
+            .if-zx{
+                @include getIcon($icons,'infos-zx');
+            }
+            .if-hk{
+                @include getIcon($icons,'infos-hk');
+            }
+        }
+    }
+    .if-main{
+        @include size(100%,auto);
+    }
+    .infos{
+        @include size(auto,auto);
+        padding:27px / $ppr 5px / $ppr;
+        background-color:#fff;
+        .info{
+            display: flex;
+            justify-content: space-between;
+            align-items:center;
+            padding:20px / $ppr 0;
+            border-bottom:2px dashed #DFDFDF;
+            @include font-dpr(13px);
+            &:last-child{
+                border-bottom:none;
+            }
+            a{
+                display: flex;
+                @include size(100%,auto);
+                color:#323232;
+                &:active{
+                    color:#AAAAAA;
+                }
+            }
+            .if-type{
+                flex-grow: 0;
+                margin-right: 10px / $ppr;
+            }
+            .s-event{
+                @include getIcon($icons,'s-event');
+            }
+            .s-news{
+                @include getIcon($icons,'s-news');
+            }
+            .if-topic{
+                display: inline-block;
+                flex-grow:0;
+                @include size(480px / $ppr,auto);
+                margin-right: 20px / $ppr;
+                overflow:hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+            .if-date{
+                display: inline-block;
+                flex-grow: 1;
+                text-align: right;
+                color:#AAAAAA;
+            }
+        }
+    }
+    .at{
+        padding:35px / $ppr 45px / $ppr 0;
+        .at-head{
+            padding-bottom:30px / $ppr;
+            border-bottom:1px solid #DCDCDC;
+            text-align: center;
+            .at-title{
+                padding-bottom: 30px / $ppr;
+                @include font-dpr(15px);
+                color:#FE7A15;
+            }
+            .at-info{
+                @include font-dpr(10px);
+                color:#ACACAC;
+            }
+        }
+        .at-ctn{
+            padding: 10px / $ppr;
+            @include font-dpr(13px);
+            text-indent: 2em;
+            color:#585858;
+            line-height: 1.5;
+            img{
+                @include size(100%,auto);
+            }
+        }
+        .af-foot{
+            padding:28px / $ppr 0;
+            border-top:1px solid #DCDCDC;
+            text-align: center;
+            .af-link{
+                display: inline-block;
+                margin-right: 50px / $ppr;
+                padding:17px / $ppr 66px / $ppr;
+                border-radius:30px / $ppr;
+                font-weight: bold;
+                color:#1CA6E7;
+                &:last-child{
+                    margin-right: 0;
+                }
+            }
+            .af-link-on{
+                background-color:#F87E19;
+                color:#fff;
+            }
+        }
+    }
+    .at-controls{
+        position:absolute;
+        @include size(70px / $ppr,auto);
+        right: 0;
+        bottom:164px / $ppr;
+        overflow:hidden;
+        .at-control{
+            display: flex;
+            align-items:center;
+            justify-content: center;
+            @include size(100%,73px / $ppr);
+        }
+        .at-top-box{
+            border:1px solid #F7801A;
+            border-bottom-color:#DDDDDD;
+            border-right:0;
+            border-radius: 10px / $ppr 0 0 0;
+        }
+        .at-top{
+            @include getIcon($icons,'infos-top');
+        }
+        .at-f-box{
+            border:1px solid #4664A0;
+            border-top:0;
+            border-right:0;
+            border-radius: 0 0 0 10px / $ppr;
+        }
+        .at-f{
+            @include getIcon($icons,'infos-f');
+        }
+    }
+}

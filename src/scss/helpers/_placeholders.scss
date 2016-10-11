@@ -1,0 +1,17 @@
+%transition{
+  @include transition-property(all);
+  @include transition-duration(0.2s);
+  @include transition-timing-function(ease-in);
+}
+
+%rotate{
+  @include rotate(360deg);
+}
+
+%rotate180{
+  @include rotate(180deg);
+}
+
+%inline-block{
+  @include inline-block;
+}

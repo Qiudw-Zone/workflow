@@ -1,0 +1,114 @@
+@charset "UTF-8";
+@import "compass";
+
+// 精灵图操作
+$_pc-sprite-link: "-";
+$_pc-sprite-ps: (hover active disabled);
+/**
+ * 获取一个 sprite-map ，内部使用
+ * @param  {String} $sprite-dir 相对于images_dir的图片目录文件夹路径
+ * @return {String}             sprite-map
+ * @example  
+ *     $sprite-map: _pc-sprite-get-map('support/icon');
+ */
+@function _pc-sprite-get-map($sprite-dir){
+    @return sprite-map(
+        "#{$sprite-dir}/*.png"
+        ,$layout: smart
+        // ,$sort-by: "width"
+        // ,$spacing: 1px
+    );
+}
+/**
+ * 生成公共样式，用于生成 %extend
+ * @param  {String} $sprite-dir 相对于images_dir的图片目录文件夹路径
+ * @return {mixin}             
+ * @example
+ *     %support-icon{
+ *         @include _pc-sprite('support/icon');
+ *     }
+ */
+@mixin _pc-sprite($sprite-dir){
+    $sprite-map: _pc-sprite-get-map($sprite-dir);
+    // 执行 sprite-url才会生成精灵图
+    $url: sprite-url($sprite-map);
+    background: $url 0 no-repeat;
+}
+// 获取位置
+@function _pc-sprite-position($sprite-dir ,$sprite-name){
+    $sprite-map: _pc-sprite-get-map($sprite-dir);
+    $_pos: sprite-position($sprite-map, $sprite-name);
+    @return $_pos;
+}
+// 获取宽
+@function pc-sprite-width($sprite-dir ,$sprite-name){
+    $sprite-map: _pc-sprite-get-map($sprite-dir);
+    $_file: sprite-file($sprite-map, $sprite-name);
+    $icon-width: image-width($_file);
+    @return $icon-width;
+}
+// 获取高
+@function pc-sprite-height($sprite-dir ,$sprite-name){
+    $sprite-map: _pc-sprite-get-map($sprite-dir);
+    $_file: sprite-file($sprite-map, $sprite-name);
+    $icon-height: image-height($_file);
+    @return $icon-height;
+}
+// 获取单个精灵图
+@mixin pc-sprite($sprite-dir ,$sprite-name ,$default-style: true ,$extend: false){
+    @if($extend){
+        @extend #{$extend};
+    }@else{
+        @if($default-style){
+            @include _pc-sprite($sprite-dir);
+        }
+    }
+    background-position: _pc-sprite-position($sprite-dir ,$sprite-name);
+}
+// example
+// @include all-sprite('icon') {
+//     vertical-align: top;
+// };
+// 生成所有精灵图
+@mixin pc-sprite-all($sprite-dir ,$extend: false){
+    $sprite-map: _pc-sprite-get-map($sprite-dir);
+    // 获取所有精灵图名称
+    $names: sprite-names($sprite-map);
+    $doc-names:();
+    @each $sprite-name in $names{
+        $doc-names: append($doc-names ,'.#{$sprite-name}' ,comma);
+    }
+    // 生成公共样式
+    #{$doc-names}{
+        @if($extend){
+            @extend #{$extend};
+        }@else{
+            @include _pc-sprite($sprite-dir);
+        }
+
+        // 覆盖属性
+        @content;
+    }
+    @each $sprite-name in $names{
+        .#{$sprite-name}{
+            width: pc-sprite-width($sprite-dir ,$sprite-name);
+            height: pc-sprite-height($sprite-dir ,$sprite-name);
+            @include pc-sprite($sprite-dir ,$sprite-name ,false);
+        }
+        // 输出hover active 等 后缀
+        $str: $sprite-name;
+        $lastindex: -1;
+        $index: str-index($str ,$_pc-sprite-link);
+        @while($index != null){
+            $lastindex: $lastindex + $index;
+            $str: str-slice($str ,$index + 1);
+            $index: str-index($str ,$_pc-sprite-link);
+        }
+        @if((index($_pc-sprite-ps, $str) != null) and ($lastindex != -1)){
+            $class: str-slice($sprite-name ,1 ,$lastindex);
+            .#{$class}:#{$str},.#{$class}.#{$str}{
+                @include pc-sprite($sprite-dir ,$sprite-name ,false);
+            }
+        }
+    }
+}

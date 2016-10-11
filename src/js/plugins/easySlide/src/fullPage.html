@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>easySlide</title>
+	<link rel="stylesheet" href="css/fullPage.css">
+</head>
+<body>
+	<div id="easySlide">
+		<!-- 轮播条目 -->
+		<div class="slideItem">
+			<img src="images/1.jpg">
+			<img src="images/1.jpg">
+		</div>
+		<div class="slideItem">
+			<img src="images/2.jpg" >
+		</div>
+		<div class="slideItem">
+			<img src="images/3.jpg" >
+		</div>
+		<!-- 上下张 -->
+		<a class="prev"></a>
+		<a class="next"></a>
+
+		<!-- 导航 -->
+		<div class="navigator">
+				<ul>
+					<li><a class="nItem"></a></li>
+					<li><a class="nItem"></a></li>
+					<li><a class="nItem"></a></li>
+				</ul>
+		</div>
+		<!-- 垂直导航 -->
+		<div class="vNavigator">
+				<ul>
+					<li><a class="vItem"></a></li>
+					<li><a class="vItem"></a></li>
+					<li><a class="vItem"></a></li>
+				</ul>
+		</div>
+	</div>
+	
+	<script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+	<script type="text/javascript" src="js/jquery.easySlide.js"></script>
+	<script type="text/javascript">
+	$(function(){
+		$("#easySlide").easySlide({
+			index:0,
+			hoverPause:true,
+			derection:'v',
+			autoPlay:false,
+			fullPage:true
+		});
+		
+		
+		
+		
+
+		
+		
+	});
+	</script>
+</body>
+</html>

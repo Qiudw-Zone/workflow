@@ -1,0 +1,31 @@
+{* 继承basic_page_m2.tpl页面代码 *}
+{extends file="templates/basic_page_m2.tpl"}
+{block name="head"}
+    <link rel="stylesheet" href="//mabres.gm99.com/js/plugins/cropperjs/cropper.min.css">
+    <style>
+        .pic-wrap{
+            margin:20px auto;
+            width:600px;
+            height: 400px;
+        }
+        #prev{
+            margin:20px auto;
+            width:600px;
+            height: 400px;
+            overflow: hidden;
+        }
+        .pic-wrap img{
+            width:100%;
+            height: auto;
+        }
+    </style>
+{/block}
+    
+{block name="body"}
+    <input type="file" id="file" value="上传头像">
+    <div class="pic-wrap">
+        <img src="" alt="" id="pic" class="pic">
+    </div>
+    <div id="prev"></div>
+    <script src="//mabres.gm99.com/js/libs/require.js" data-main="//mabres.gm99.com/js/platform/tx.js"></script>
+{/block}

@@ -1,0 +1,234 @@
+@charset "utf-8";
+/**
+ * @func 剑刃跨服活动
+ * @author 寒影
+ * @date 2016-07-29
+ */
+@import "common/_reset.scss";
+
+$icons-spacing:2px;
+$icons-layout:"horizontal";
+@import "sites/events/2016/07/jr/icons/*.png";
+@include all-icons-sprites;
+
+
+::-moz-selection {
+    background: #271A1A;
+    color: #fff;
+}
+
+::-webkit-selection {
+    background: #271A1A;
+    color: #fff;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track { // 设置滚动条滚动区域的样式
+    -webkit-box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.3);
+    background-color: #271A1A;
+    // border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    // border-radius: 5px;
+    background: #590D0B;
+}
+
+::-webkit-scrollbar-thumb:window-inactive {
+    background: rgba(255, 0, 0, 0.4);
+}
+
+.page{
+    @include size(100%,auto);
+    min-width: 1170px;
+    background-color:#000;
+}
+
+.top{
+    @include size(auto,1720px);
+    @include bg(url(http://localhost:8889/img/sites/events/2016/07/jr/bg-top.jpg) no-repeat top center);
+}
+.bottom{
+    @include size(auto,1780px);
+    @include bg(url(http://localhost:8889/img/sites/events/2016/07/jr/bg-bottom.jpg) no-repeat top center);
+}
+.wrap{
+    @include size(1170px,auto);
+    margin:0 auto;
+}
+.item-1{
+    padding-top:920px;
+}
+.item-2{
+    padding-top:145px;
+}
+.item-3{
+    padding-top:325px;
+}
+.mark-yelo{
+    color:#DAAE39;
+}
+.main{
+    @include size(755px,auto);
+    margin:0 auto;
+    .activ{
+        @include size(100%,auto);
+    }
+    .desc{
+        @include size(auto,auto);
+        padding:15px 20px;
+        font-size: 16px;
+        color:#fff;
+        line-height: 1.6;
+        .desc-item{
+            margin-bottom: 17px;
+        }
+        .desc-type{
+            float: left;
+            @include size(100px,25px);
+            margin-right: 10px;
+            color:#CD2E30;
+        }
+        .desc-ctn{
+            display: block;
+            overflow: hidden;
+        }
+    }
+    .controls{
+        margin:30px auto;
+        @include size(auto,47px);
+        .sifus{
+            float: left;
+            @include size(350px,45px);
+            font-size: 16px;
+            color:#FEFEFE;
+            background-color: #000;
+            border-color:#E85151;
+        }
+        .bh{
+            float: right;
+            @include size(350px,39px);
+            text-align: center;
+            border:1px solid #E85151;
+            font-size: 16px;
+            color:#FEFEFE;
+            background-color: #000;
+            outline: none;
+        }
+    }
+    .titles{
+        margin:30px auto;
+        @include size(auto,53px);
+        .title-nh{
+            float: left;
+            @include size(350px,53px);
+            cursor: pointer;
+        }
+        .title-jx{
+            float: right;
+            @include size(350px,53px);
+            cursor: pointer;
+        }
+    }
+    .lists{
+        @include size(auto,257px);
+        .nhs{
+            float: left;
+            @include size(351px,257px);
+            @include bg(url(http://localhost:8889/img/sites/events/2016/07/jr/bg-nh.jpg))
+        }
+        .jxs{
+            float: right;
+            @include size(351px,257px);
+            @include bg(url(http://localhost:8889/img/sites/events/2016/07/jr/bg-jx.jpg))
+        }
+        .list{
+            &:first-child{
+                margin-top: 61px;
+            }
+            @include size(auto,35px);
+            padding: 0 20px;
+            line-height: 35px;
+            color:#D53B34;
+        }
+    }
+    .items{
+        @include size(auto,367px);
+        margin-top:20px;
+        .yjs{
+            float: left;
+            @include size(353px,367px);
+            @include bg(url(http://localhost:8889/img/sites/events/2016/07/jr/bg-yj.jpg));
+        }
+        .lys{
+            float: right;
+            @include size(353px,367px);
+            @include bg(url(http://localhost:8889/img/sites/events/2016/07/jr/bg-ly.jpg));
+        }
+        .pages{
+            @include size(100%,45px);
+            margin-top:15px;
+            font-size: 0;
+            .page-item{
+                display: inline-block;
+                *display:inline;
+                *zoom:1;
+                @include size(50%,100%);
+            }
+        }
+        .yj-wrap{
+            @include size(100%,245px);
+        }
+        .yj{
+            @include size(auto,49px);
+            padding: 0 25px;
+            line-height: 49px;
+            color:#D53B34;
+            .code{
+                margin-right: 10px;
+            }
+            .chosen{
+                display: inline-block;
+                *display:inline;
+                *zoom:1;
+                float: right;
+                position: relative;
+                @include size(25px,25px);
+                top:10px;
+            }
+        }
+        .yj-btn-wrap{
+            @include size(100%,50px);
+            .btn-yj{
+                @include size(100%,100%);
+                outline: none;
+                cursor: pointer;
+                background:none;
+                border: none;
+            }
+        }
+        .ly-wrap{
+            @include size(82%,280px);
+            margin-top: 61px;
+            padding: 0 25px;
+            overflow-y:scroll;
+            color:#D53B34;
+            .ly{
+                padding: 14px 15px;
+                border-bottom: 1px dashed #3B0A03;
+            }
+        }
+    }
+    .sz-wrap{
+        margin: 20px auto;
+        text-align: center;
+        .sz{
+            @include size(350px,53px);
+            outline: none;
+            cursor: pointer;
+        }
+    }
+}

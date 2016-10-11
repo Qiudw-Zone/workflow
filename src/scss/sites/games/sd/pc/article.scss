@@ -1,0 +1,202 @@
+@charset "utf-8";
+// @import "common/reset.scss";
+
+@mixin size($width,$height){
+	width: $width;
+	height: $height;
+}
+@mixin bg($bg-info){
+	background: $bg-info;
+}
+@mixin coverBg($bg-info){
+	background: $bg-info;
+	background-size: cover;
+}
+@mixin containBg($bg-info){
+	background: $bg-info;
+	background-size: contain;
+}
+@mixin hundredBg($bg-info){
+	background: $bg-info;
+	background-size: 100%;
+}  
+  
+$icon-spacing:4px;
+$icon-layout:"horizontal";
+@import "sites/games/sd/pc/icon/*.png";
+@include all-icon-sprites;
+
+body{
+	@include bg(#ffffff);
+}
+.wrap{
+	@include size(1200px,auto);
+	margin:0 auto;
+}
+.head{
+	@include size(100%,71px);
+	@include bg(url(http://localhost:8889/img/games/sd/pc/bg-in-nav.jpg) center no-repeat);
+	.head-desc{
+		position: relative;
+		@include size(285px,100%);
+
+		.head-logo{
+			position: absolute;
+			z-index: 1;
+			@include size(101px,101px);
+			top:5px;
+			@include bg(url(http://localhost:8889/img/games/sd/pc/logo.png));
+		}
+		.head-title{
+			@include size(175px,100%);
+			margin-left: 110px;
+			font-size: 16px;
+			line-height: 1.6;
+			color: #fff;
+		}
+		.game-name{
+			display: block;
+			font-size: 26px;
+			font-weight: bold;
+			color: #fff;
+		}
+	}
+	.head-nav{
+		@include size(560px,100%);
+		line-height: 71px;
+		font-size: 18px;
+		color: #fff;
+		.nav-item{
+			@include size(97px,100%);
+			margin-right: 15px;
+			text-align: center;
+			cursor: pointer;
+			&:hover{
+				color: #564374;
+			}
+		}
+		.nav-item-on{
+			color:#564374;
+		}
+	}
+}
+
+.main{
+	@include size(100%,1057px);
+	@include bg(url(http://localhost:8889/img/games/sd/pc/bg-main.jpg) top center no-repeat);
+}
+.main-wrap{
+	@include size(1200px,100%);
+	margin: 0 auto;
+	padding-top:100px;
+}
+.container{
+	@include size(1120px,835px);
+	margin: 0 auto;
+	@include bg(rgba(11,11,11,.6));
+	
+	.page-head{
+		@include size(100%,50px);
+		line-height: 50px;
+		font-size: 20px;
+		color: #99908D;
+		@include bg(rgb(34,19,16));
+		.page-nav{
+			float: left;
+			@include size(220px,100%);
+			text-align:center;
+			font-size: 20px;
+			cursor: pointer;
+			&:hover{
+				color:#E67E23;
+				font-weight:bold;
+				@include bg(rgb(17,7,5));
+			}
+		}
+		.page-nav-on{
+			@include bg(rgb(17,7,5));
+			color:#E67E23;
+			font-weight:bold;
+		}
+	}
+	.page-body{
+		@include size(100%,auto);
+		font-size: 22px;
+		.info-item{
+			@include size(auto,30px);
+			margin:30px 0;
+			padding:0 30px;
+			line-height: 30px;
+		}
+		.info-content{
+			float: left;
+			color: #9A8788;
+			&:hover{
+				color:#E67E23;
+			}
+		}
+		.info-time{
+			float: right;
+			color: #9A8788;
+		}
+	}
+	.page-foot{
+		@include size(400px,35px);
+		margin:0 auto;
+		margin-top: 150px;
+		padding:15px;
+		.page-item{
+			float: left;
+			padding:10px;
+			margin-right: 5px;
+			@include bg(rgb(230,230,230));
+			color: #707070;
+			&:hover{
+				@include bg(rgb(255,197,161));
+				color: #f1f1f1;
+			}
+		}
+		.cur{
+			@include bg(rgb(255,197,161));
+			color: #f1f1f1;
+		}
+	}
+}
+.foot{
+	@include size(100%,100px);
+	@include bg(#000);
+	color:#6F7270;
+	line-height:100px;
+	.foot-wrap{
+		@include size(1200px,100px);
+		margin:0 auto;
+		@include bg(#000);
+	}
+	.gm{
+		float: left;
+		margin-left: 30px;
+		margin-top:33px;
+		@include size(112px,34px);
+	}
+	.rights{
+		float: left;
+		margin-left: 30px;
+	}
+	.foot-desc{
+		float: left;
+		margin-left: 30px;
+		margin-top:18px;
+		@include size(445px,auto);
+	}
+	.logo-15{
+		float: left;
+		@include size(44px,44px);
+		margin-top:10px;
+	}
+	.descs{
+		float: left;
+		margin-left: 25px;
+		line-height: 1.6;
+		list-style: square;
+	}
+}

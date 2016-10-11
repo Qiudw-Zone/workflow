@@ -1,0 +1,21 @@
+/* 行列 */
+$row-width : 200px !default;
+$row-height: 28px !default;
+$row-padding-side : 9px !default;
+@mixin rowcol-num($num : 1){
+    width: $row-width * $num + ($num - 1 ) * $row-padding-side * 2;
+}
+@mixin rowcol($end : 5 ,$width : $row-width ,$padding-side : $row-padding-side ,$row : row ,$col : col){
+    .#{$row}{
+        .#{$col}{
+            padding: 0 $padding-side;
+            float:left;
+            height: $row-height;
+        }
+        @for $i from 1 through $end{
+            .#{$col}-#{$i}{
+                @include rowcol-num($i);
+            }
+        }
+    }
+}

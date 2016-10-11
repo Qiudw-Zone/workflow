@@ -1,0 +1,133 @@
+@mixin abs-pos($top: auto, $right: auto, $bottom: auto, $left: auto) {
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+  position: absolute;
+}
+
+@mixin ast-l-t($left, $top){
+  position: absolute;
+  left: $left;
+  top: $top;
+}
+
+@mixin ast-r-t($right, $top){
+  position: absolute;
+  right: $right;
+  top: $top;
+}
+
+@mixin fixed-center($width, $height){
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  width: $width;
+  height: $height;
+  margin-left: -$width/2;
+  margin-top: -$height/2;
+  z-index: 99999;
+}
+
+@mixin size($width, $height:$width){
+  width: $width;
+  height: $height;
+}
+
+@mixin line-height($heightValue: 12 ){
+  line-height: $heightValue + px; //fallback for old browsers
+  line-height: (0.125 * $heightValue) + rem;
+}
+
+@mixin lh-h($height){
+  height: $height;
+  line-height: $height;
+}
+
+@mixin min-height($height){
+  min-height: $height;
+  height: auto !important;
+  @if $legacy-support-for-ie {
+    _height: $height;
+  }
+}
+
+@mixin hidden{
+  display: none !important;
+  visibility: hidden;
+}
+
+@mixin disabled($bgColor: #e6e6e6,$textColor:#ababab){
+  background-color: $bgColor !important;
+  color: $textColor !important;
+  cursor: not-allowed !important;
+}
+
+@mixin clearfix{
+  @if $legacy-support-for-ie {
+    *zoom: 1;
+  }
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
+  &:after {
+    clear: both;
+    overflow: hidden;
+  }
+}
+
+// make triangle
+@mixin triangle($direction, $size, $borderColor) {
+  content:"";
+  @include size(0, 0);
+  @if $direction == top {
+    border-bottom:$size solid $borderColor;
+    border-left:$size dashed transparent;
+    border-right:$size dashed transparent;
+  }
+  @else if $direction == right {
+    border-left:$size solid $borderColor;
+    border-top:$size dashed transparent;
+    border-bottom:$size dashed transparent;
+  }
+  @else if $direction == bottom {
+    border-top:$size solid $borderColor;
+    border-left:$size dashed transparent;
+    border-right:$size dashed transparent;
+  }
+  @else if $direction == left {
+    border-right:$size solid $borderColor;
+    border-top:$size dashed transparent;
+    border-bottom:$size dashed transparent;
+  }
+}
+
+/* animation.scss */
+@mixin animation($name, $duration, $function: ease, $delay: 0s, $count: infinite) {
+  -webkit-animation: $name $duration $function $delay $count;
+  -moz-animation: $name $duration $function $delay $count;
+  -ms-animation: $name $duration $function $delay $count;
+  -o-animation: $name $duration $function $delay $count;
+  animation: $name $duration $function $delay $count;
+}
+/* keyframes.scss */
+@mixin keyframes($animationName) {
+  @-webkit-keyframes #{$animationName} {
+    @content;
+  }
+  @-moz-keyframes #{$animationName} {
+    @content;
+  }
+  @-ms-keyframes #{$animationName} {
+    @content;
+  }
+  @-o-keyframes #{$animationName} {
+    @content;
+  }
+  @keyframes #{$animationName} {
+    @content;
+  }
+}
+

@@ -1,0 +1,18 @@
+{
+    "result":1,
+    "data":[
+        {
+            "name":"iphone4",
+            "price":5000
+            },
+        {
+            "name":"iphone5",
+            "price":5000
+            },
+        {
+            "name":"iphone6",
+            "price":5000
+            }
+    ],
+    "msg":"success"
+}
